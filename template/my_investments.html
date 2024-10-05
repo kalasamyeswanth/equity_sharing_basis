@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block content %}
+<h2>My Investments</h2>
+
+<ul>
+    {% for investment in investments %}
+        <li>
+            <strong> Company Name: </strong>{{ investment.startup.name }}<br>
+            <strong> Amount Invested: </strong>${{ investment.amount_invested }}<br>
+            <strong> Equity Taken: </strong>{{ investment.equity_taken }}%
+        </li>
+    {% empty %}
+        <p>You have not made any investments yet.</p>
+    {% endfor %}
+</ul>
+{% endblock %}
+</body>
+</html>

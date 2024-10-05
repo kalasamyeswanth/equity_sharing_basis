@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+{% block content %}
+    <h2>{{ name }}</h2>
+    <p>{{ description }}</p>
+    <p><strong>Founder:</strong> {{ founder}}</p>
+    <p><strong>Equity Offered:</strong> ${{ investment_amount }}</p>
+    <p><strong>Valuation:</strong> {{ equity_taken }}%</p>
+    <p><strong>Microshare Value:</strong> ${{ microshare_value }}</p>
+
+    <h2><u>Investments</u></h2>
+<table style="width: 100%" border="2px">
+  <thead>
+    <tr>
+      <th>Investor Name</th>
+      <th>Investment Date</th>
+      <th>Amount</th>
+      <th>Equity Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for investment in investments %}
+    <tr>
+      <td>{{ investment.investor }}</td>
+      <td>{{ investment.invested_at }}</td>
+      <td>{{ investment.amount_invested }}</td>
+      <td>{{ investment.equity_taken }}%</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4">No investments found for this startup.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+{% endblock %}
+</body>
+</html>

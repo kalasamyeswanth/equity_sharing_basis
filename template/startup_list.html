@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Companys</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+{% block content %}
+  <h2>Startups Available for Investment</h2>
+  <ul>
+    {% for startup in startups %}
+      <li>
+        <a href=" {% url 'myapp1:startupdetail' startup.pk %}">{{ startup.name }}</a>
+        
+        - Equity Offered: {{ startup.equity_offered }}%
+      </li>
+      
+    {% endfor %}
+
+      
+
+
+
+  </ul>
+{% endblock %}
+</body>
+</html>

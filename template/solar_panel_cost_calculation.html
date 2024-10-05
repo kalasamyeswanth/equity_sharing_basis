@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Panel Cost Calculation</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block content %}
+<h2>Solar Panel Cost Calculation</h2>
+<p>Cost per Solar Panel: ${{ panel_cost }}</p>
+<p>Number of Panels: {{ num_panels }}</p>
+<p>Total Cost: ${{ total_cost }}</p>
+{% endblock %}
+</body>
+</html>

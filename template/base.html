@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Sharing Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Equity Sharing Platform</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'myapp1:startup_list' %}">Startups</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'myapp1:invest_create' %}">Invest</a>
+                </li>
+
+
+                {% if user.is_authenticated and user.investor %}
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'myapp1:my_investments' %}">My Investments</a>
+                        </li>
+                    {% endif %}
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'myapp1:logout' %}">Logout</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
